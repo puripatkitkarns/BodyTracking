@@ -11,13 +11,6 @@ struct TutorialView: View {
     let onClose: () -> Void
     @State private var page = 0
     
-    let tutorials: [(image: String, title: String, text: String)] = [
-        ("tutorial_pose", "Match the Pose", "Copy the pose shown in the target box to score points."),
-        ("tutorial_center", "Stay in the Zone", "Stand inside the center area so only you are detected."),
-        ("tutorial_speed", "Be Quick", "Match the pose before the timer runs out."),
-        ("tutorial_score", "Earn Points", "Each correct pose gives 1 point. Get the highest score!")
-    ]
-    
     var body: some View {
         VStack(spacing: 10) {
             
@@ -37,24 +30,25 @@ struct TutorialView: View {
                                 .resizable()
                                 .scaledToFit()
                                 .frame(height: 280)
+                                .cornerRadius(40)
                                 .padding(.top, 20)
                             
                             Text(tutorials[i].title)
-                                .font(.system(size: 40, weight: .bold))
+                                .font(.system(size: 30, weight: .bold))
                                 .foregroundColor(.black)
                             
                             Text(tutorials[i].text)
-                                .font(.system(size: 30))
+                                .font(.system(size: 20))
                                 .foregroundColor(.black.opacity(0.8))
                                 .multilineTextAlignment(.center)
-                                .padding(.horizontal, 40)
+                                .padding(.horizontal, 80)
                                 .padding(.bottom, 20)
                             
                         }
                         .frame(maxWidth: 600)
-                        .background(Color.white)
+                        //.background(Color.white)
                         .cornerRadius(40)
-                        .shadow(radius: 5)
+                        //.shadow(radius: 5)
                     }
                     .tag(i)
                 }
